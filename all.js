@@ -7,8 +7,8 @@ const btnAxios = document.getElementById("btnAxios");
 const showCodeEl = document.getElementById("showCode");
 
 // 宣告變數
-let selectedPokemon;
-let selectedOption;
+let selectedPokemon = 'pikachu';
+let selectedOption = '皮卡丘 pikachu';
 let currentMethod = 'XMLHttpRequest';
 
 // 監聽選取狀態
@@ -16,11 +16,11 @@ pokemonSelector.addEventListener('change', function (e) {
   selectedPokemon = e.target.value.toLowerCase(); // value
   selectedOption = e.target.selectedOptions[0].innerText; // 顯示文字
   // console.log(`${selectedPokemon}, ${selectedOption}`);
-  if (method === 'XMLHttpRequest') {
+  if (currentMethod === 'XMLHttpRequest') {
     getDataWithXML(selectedPokemon)
-  } else if (method === 'fetch') {
+  } else if (currentMethod === 'fetch') {
     getDataWithFetch(selectedPokemon);
-  } else if (method === 'axios') {
+  } else if (currentMethod === 'axios') {
     getDataWithAxios(selectedPokemon)
   }
 });
